@@ -254,10 +254,6 @@ body.menu-open {
         position: fixed;
         gap: 0;
     }
-
-    #header-menu {
-        background-color: transparent;
-    }
 }
 
 @media (min-width: 992px) {
@@ -274,12 +270,13 @@ body.menu-open {
 
     #header-menu {
         position: static;
+        left: 0;
         width: 100%;
         max-width: 1200px;
         height: auto;
         padding: 0;
+        background-color: transparent;
         box-shadow: none;
-        left: 0;
     }
 
     #header-menu-list {
