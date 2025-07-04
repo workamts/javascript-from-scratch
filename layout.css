@@ -1,0 +1,1309 @@
+/*==============================
+=   JavaScript From Scratch - CSS
+=   File: layout.css
+==============================*/
+
+/*======================================
+=   CSS VARIABLES (Custom Properties)
+======================================*/
+
+:root {
+    --color-primary: #A9F00F;
+    --color-secondary: #152025;
+    --color-tertiary: #97b8ffbf;
+    --color-quaternary: #0D0326;
+    --color-quinary: #334805;
+    --color-senary: #fff;
+    --color-septenary: #000;
+    --color-octonary: #D7E5D8;
+    --color-nonary: #F0F4F1;
+    --color-denary: #caff3a;
+    --color-undecimary: #232e36;
+    --color-duodecimary: #eaf2ff;
+    --color-tridecimary: #333;
+    --font-main: 'Syne', Arial, sans-serif;
+    --font-secondary: Arial, sans-serif;
+    --shadow: 0 0.25rem 2rem 0 rgba(0,0,0,0.18);
+
+    /* Background colors as variables */
+    --bg-primary: #A9F00F;
+    --bg-secondary: #152025;
+    --bg-tertiary: #97b8ffbf;
+    --bg-quaternary: #0D0326;
+    --bg-quinary: #334805;
+    --bg-senary: #fff;
+    --bg-septenary: #000;
+    --bg-octonary: #D7E5D8;
+    --bg-nonary: #F0F4F1;
+    --bg-denary: #caff3a;
+    --bg-undecimary: #232e36;
+    --bg-duodecimary: #eaf2ff;
+    --bg-tridecimary: #333;
+}
+
+
+
+/*======================================
+=   RESET STYLES
+======================================*/
+
+html {
+    scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+
+/*======================================
+=   BODY AND BASE STYLES
+======================================*/
+
+body {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.6;
+    overflow-x: hidden;
+    word-wrap: break-word;
+    text-rendering: optimizeLegibility;
+    background-color: var(--bg-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: var(--font-main);
+    background: url('https://imgproxy.gamma.app/resize/quality:80/resizing_type:fit/width:2400/https://cdn.gamma.app/zc87vhr30n8uf3n/f98b42d8e16844b0a93c848818d04ee3/original/no-star-3.png') center/cover no-repeat fixed;
+    color: var(--color-octonary);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+/*======================================
+=   SECTION HEADER
+======================================*/
+
+#header {
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+    height: 80px;
+    padding-inline: 20px;
+    background-color: rgba(21,32,37,0.85);
+    box-shadow: 0 0 10px var(--bg-septenary);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+
+/*--- Header Logo ---*/
+#header-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    color: var(--color-primary);
+    cursor: pointer;
+    padding: 0;
+}
+
+
+/*--- Custom logo using CSS variables---*/
+#header-logo-img .logo-bg {
+    fill: var(--color-secondary);
+}
+
+#header-logo-img .logo-border1,
+#header-logo-img .logo-border2 {
+    stroke: var(--color-primary);
+    stroke-width: 3;
+    fill: none;
+}
+
+#header-logo-img .logo-detail1,
+#header-logo-img .logo-detail2 {
+    fill: var(--color-primary);
+}
+
+#header-brand {
+    font-family: var(--font-main);
+    font-size: 1.1rem;
+    letter-spacing: .1rem;
+    color: var(--color-primary);
+}
+
+
+/* Button to open navigation menu */
+#header-menu-btn {
+    border: none;
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-align: center;
+    color: var(--color-primary);
+    background: none;
+    cursor: pointer;
+}
+
+body.menu-open #header-menu-btn {
+    display: none;
+}
+
+
+/*--- Overlay hidden by default ---*/
+#menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 998;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    pointer-events: none;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    transition: opacity 0.3s ease;
+}
+
+
+/* Show the overlay when the menu is open*/
+body.menu-open #menu-overlay {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Lock scroll */
+body.menu-open {
+    overflow: hidden;
+}
+
+
+/*---------- Navigation Menu ----------*/
+#header-menu {
+    position: fixed;
+    top: 0;
+    left: -100vw;
+    z-index: 1000;
+    width: clamp(300px, 75vw, 500px);
+    height: 100vh;
+    padding: 70px 0 0 50px;
+    background: var(--bg-secondary);
+    box-shadow: 0 0 16px var(--bg-septenary);
+    transition: left .8s cubic-bezier(.4,0,.2,1);
+}
+
+#header-menu.open {
+    left: 0;
+}
+
+#header-menu-close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: none;
+    border: none;
+    font-size: 3rem;
+    color: var(--color-primary);
+    background: none;
+    cursor: pointer;
+}
+
+#header-menu.open #header-menu-close {
+    display: block;
+}
+
+#header-menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.header__menu--item a {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: .1rem;
+    color: var(--color-nonary);
+    transition: color 0.2s;
+}
+
+.header__menu--item a:hover,
+.header__menu--item a:focus,
+.header__menu--item a.active {
+    color: var(--color-primary);
+}
+
+
+/*------------- MEDIA QUERIES: HEADER TABLET AND DESKTOP -------------*/
+@media (min-width: 768px) {
+    #header {
+        position: fixed;
+        gap: 0;
+    }
+
+    #header-menu {
+        background-color: transparent;
+    }
+}
+
+@media (min-width: 992px) {
+    #header {
+        flex-direction: column;
+        justify-content: center;
+        padding-block: 10px 15px;
+        height: auto;
+    }
+
+    #header-logo {
+        width: 100%;
+    }
+
+    #header-menu {
+        position: static;
+        width: 100%;
+        max-width: 1200px;
+        height: auto;
+        padding: 0;
+        box-shadow: none;
+        left: 0;
+    }
+
+    #header-menu-list {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0;
+    }
+
+    #header-menu-btn,
+    #header-menu-close {
+        display: none !important;
+    }
+
+    .header__menu--item a {
+        font-size: .9rem;
+    }
+}
+/*------------- END MEDIA QUERIES -------------*/
+
+
+
+/*======================================
+=   MAIN SECTION
+======================================*/
+
+main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(21,32,37,0.85);
+}
+
+
+
+/*======================================
+=   HERO SECTION
+======================================*/
+
+#hero {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    scroll-margin-top: 80px;
+}
+
+
+/* background image */
+#hero-img {
+    width: 100%;
+    min-height: 400px;
+    background: url('https://cdn.gamma.app/kn6b920lxo5p1i3/generated-images/iYEZBpeSP7r7YYMhOebzf.jpg') center/cover no-repeat;
+}
+
+
+/* Hero content */
+#hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 40px 20px;
+}
+
+.hero__title {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: .1rem;
+    line-height: 1.5;
+}
+
+#hero-description {
+    font-size: 1.1rem;
+}
+
+
+/*--- Container for registration and information buttons ---*/
+#hero-btn-group {
+    display: flex;
+    gap: 15px;
+}
+
+#hero-btn-primary,
+#hero-btn-secondary {
+    width: 50%;
+    padding-block: 10px;
+    border-radius: 0.5rem;
+    font-family: var(--font-main);
+    font-weight: 700;
+    font-size: 1rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+#hero-btn-primary {
+    color: var(--color-septenary);
+    background-color: var(--bg-primary);
+    transition: background-color .4s;
+}
+
+#hero-btn-primary:hover {
+    background-color: var(--bg-denary);
+}
+
+#hero-btn-secondary {
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    background-color: transparent;
+    transition: color .4s, background-color .4s;
+}
+
+#hero-btn-secondary:hover {
+    color: var(--color-septenary);
+    background-color: var(--bg-primary);
+}
+
+
+/*------------- MEDIA QUERIES: HERO TABLET AND DESKTOP -------------*/
+@media (min-width: 768px) {
+    #hero {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        gap: 30px;
+        width: clamp(700px, 85vw, 1200px);
+        height: auto;
+        padding-block: 30px;
+        margin-top: 80px;
+    }
+
+    #hero-img,
+    #hero-content {
+        width: 47%;
+    }
+
+    #hero-content {
+        padding: 0;
+    }
+
+    #hero-img {
+        height: 450px;
+        border-radius: 10px;
+    }
+
+    .hero__title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (min-width: 992px) {
+    #hero {
+        margin-top: 100px;
+    }
+
+}
+/*------------- END MEDIA QUERIES -------------*/
+
+
+
+/*======================================
+=   WHY JS SECTION
+======================================*/
+
+#why-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+    width: clamp(300px, 85vw, 1200px);
+    padding-block: 70px;
+}
+
+#why-title {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    text-align: center;
+    color: var(--color-primary);
+}
+
+
+/* Why card container */
+#why-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+
+.why__card {
+    width: 100%;
+    padding-inline: 50px;
+    text-align: center;
+}
+
+.why__card--icon {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    color: var(--bg-primary);
+    transition: transform .4s;
+}
+
+.why__card--icon:hover {
+    transform: rotate(-45deg);
+}
+
+.why__card--title {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    font-weight: 700;
+    color: var(--color-nonary);
+}
+
+.why__card--desc {
+    font-size: 1rem;
+}
+
+/*------------- MEDIA QUERIES: WHY JS TABLET AND DESKTOP -------------*/
+@media (min-width: 768px) {
+    #why-section {
+        scroll-margin-top: 50px;
+    }
+
+    #why-title {
+        text-align: start;
+    }
+
+    .why__card {
+        display: flex;
+        align-items: flex-start;
+        gap: 25px;
+        padding: 0;
+    }
+
+    .why__card {
+        text-align: start;
+    }
+
+    .why__card--desc {
+        font-size: 1.1rem;
+    }
+}
+
+@media (min-width: 992px) {
+    #why-section {
+        scroll-margin-top: 100px;
+    }
+}
+/*------------- END MEDIA QUERIES -------------*/
+
+
+
+/*======================================
+=   SECTION SYLLABUS
+======================================*/
+
+/* Fondo de la seccion */
+#syllabus-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+}
+
+
+/*--- Syllabus section background ---*/
+#syllabus-anchor {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background: url('assets/images/curriculumfund.png') center/cover no-repeat;
+    z-index: 0;
+}
+
+
+/* Opacity for the background */
+#syllabus-anchor::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+
+#syllabus-content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    width: clamp(300px, 85vw, 1200px);
+    padding-block: 70px;
+}
+
+
+/* Syllabus heading */
+#syllabus-title {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    text-align: center;
+}
+
+#syllabus-intro {
+    margin-top: 20px;
+    font-size: 1.3rem;
+    text-align: center;
+    color: var(--color-octonary);
+}
+
+
+/*---------- lista de Syllabus ----------*/
+#syllabus-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 50px;
+}
+
+.syllabus__module {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px 0 20px 30px;
+}
+
+
+/*--- Syllabus module staircase ---*/
+.syllabus__module:nth-child(1) {
+    margin-left: 0px;
+}
+
+.syllabus__module:nth-child(2) {
+    margin-left: 30px;
+}
+
+.syllabus__module:nth-child(3) {
+    margin-left: 60px;
+}
+
+.syllabus__module:nth-child(4) {
+    margin-left: 90px;
+}
+
+
+/* custom left border */
+.syllabus__module::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 100%;
+    border-radius: 5px;
+    background-color: var(--color-denary);
+}
+
+.syllabus__module--title {
+    color: var(--color-primary);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.syllabus__module--list {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-octonary);
+}
+
+
+/*------------- MEDIA QUERIES: SYLLABUS TABLET AND DESKTOP -------------*/
+@media (min-width: 768px) {
+    #syllabus-section {
+        scroll-margin-top: 80px;
+    }
+    #syllabus-title {
+        text-align: start;
+    }
+
+    #syllabus-intro {
+        text-align: start;
+    }
+
+    #syllabus-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto auto;
+        place-items: center;
+    }
+
+    .syllabus__module {
+        width: clamp(300px, 35vw, 500px);
+    }
+
+    /*--- Syllabus module staircase ---*/
+    .syllabus__module:nth-child(1) {
+        margin-left: 0;
+        margin-bottom: -100px;
+    }
+
+    .syllabus__module:nth-child(2) {
+        margin-left: 0;
+    }
+
+    .syllabus__module:nth-child(3) {
+        margin-left: 0;
+        margin-top: 100px;
+    }
+
+    .syllabus__module:nth-child(4) {
+        margin-left: 0;
+    }
+
+    /* custom top border */
+    .syllabus__module::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 10px;
+        border-radius: 5px;
+        background-color: var(--color-denary);
+    }
+}
+
+@media (min-width: 992px) {
+    #syllabus-section {
+        scroll-margin-top: 100px;
+    }
+}
+/*------------- END MEDIA QUERIES -------------*/
+
+
+
+/*======================================
+=   SECTION BENEFITS
+======================================*/
+
+#benefits-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding-block: 70px 100px;
+    color: var(--color-septenary);
+    background: var(--bg-tertiary);
+}
+
+#benefits-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    width: clamp(300px, 85vw, 1200px);
+}
+
+#benefits-title {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    text-align: center;
+    color: var(--color-septenary);
+}
+
+
+/*--- Benefits content container ---*/
+#benefits-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+#benefits-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+#benefits-intro {
+    text-align: center;
+}
+
+.benefits__ul {
+    display: flex;
+    flex-direction: column;
+    padding-left: 25px;
+}
+
+.benefits__item {
+    list-style: disc;
+    font-size: 1rem;
+}
+
+.benefits__item::marker {
+    font-size: 1.3rem;
+}
+
+.benefits__item b {
+    color: var(--color-septenary);
+}
+
+#benefits-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 5px var(--bg-quaternary);
+}
+
+
+/*------------- MEDIA QUERIES: BENEFITS TABLET AND DESKTOP -------------*/
+@media (min-width: 768px) {
+    #benefits-section {
+        scroll-margin-top: 80px;
+    }
+
+    #benefits-title {
+        text-align: start;
+        width: 100%;
+    }
+
+    #benefits-container {
+        flex-direction: row;
+        gap: 50px;
+    }
+
+    #benefits-intro {
+        font-size: 1.1rem;
+        text-align: start;
+    }
+
+    .benefits__item {
+        font-size: 1.1rem;
+    }
+
+    #benefits-img {
+        width: clamp(400px, 40vw, 500px);
+        height: clamp(300px, 40vw, 400px);
+        object-fit: cover;
+    }
+}
+
+@media (min-width: 992px) {
+    #benefits-section {
+        scroll-margin-top: 100px;
+    }
+}
+/*------------- END MEDIA QUERIES -------------*/
+
+
+
+/*======================================
+=   SECTION OFFER
+======================================*/
+
+#offer-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-block: 70px;
+    background-color: var(--bg-quaternary);
+}
+
+#offer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: clamp(300px, 85vw, 1200px);
+    padding: 50px;
+    border: 1px solid var(--color-senary);
+    border-radius: 10px;
+    background-color: var(--color-secondary);
+}
+
+#offer-title {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    text-align: center;
+    color: var(--color-primary);
+}
+
+#offer-intro {
+    text-align: center;
+}
+
+
+/*--- Styles for the offer table ---*/
+#offer-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--bg-undecimary);
+    box-shadow: 2px 2px 10px var(--bg-septenary);
+}
+
+.offer__table--header,
+.offer__table--cell {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--color-tridecimary);
+    transition: filter .4s ease-in-out;
+}
+
+.offer__table--header:hover,
+.offer__table--cell:hover {
+    filter: brightness(70%);
+}
+
+.offer__table--header {
+    font-weight: 700;
+    color: var(--color-septenary);
+    background: var(--bg-primary);
+}
+
+#offer-table tr:last-child td {
+    border-bottom: none;
+}
+
+#offer-note {
+    text-align: center;
+}
+
+
+/*------------- MEDIA QUERIES: OFFER TABLET AND DESKTOP -------------*/
+@media (min-width: 768px) {
+    #offer-section {
+        scroll-margin-top: 80px;
+    }
+    #offer-content {
+        gap: 20px;
+    }
+
+    #offer-title,
+    #offer-intro,
+    #offer-note  {
+        text-align: start;
+    }
+}
+
+@media (min-width: 992px) {
+    #offer-section {
+        scroll-margin-top: 100px;
+    }
+}
+/*------------- END MEDIA QUERIES -------------*/
+
+
+
+/*======================================
+=   FAQ SECTION
+======================================*/
+
+#faq-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-block: 70px;
+    background: var(--bg-tertiary);
+}
+
+#faq-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: clamp(300px, 85vw, 1000px);
+}
+
+#faq-title {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    text-align: center;
+    color: var(--color-quaternary);
+}
+
+
+/*--- FAQ list container ---*/
+#faq-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+}
+
+.faq__item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1 1 220px;
+    max-width: 535px;
+    padding: 20px 30px;
+    transition: transform .4s ease;
+}
+
+.faq__item:hover {
+    transform: perspective(500px) rotateX(10deg);
+}
+
+.faq__item--title {
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: .1rem;
+    color: var(--color-septenary);
+}
+
+
+/* FAQ item description */
+.faq__item--desc {
+    font-size: clamp(1rem, 2vw, 1.1rem);
+    text-align: center;
+    color: var(--color-septenary);
+}
+
+
+/*------------- MEDIA QUERIES: FAQ TABLET AND DESKTOP -------------*/
+@media (min-width: 768px) {
+    #faq-section {
+        scroll-margin-top: 80px;
+    }
+
+    #faq-title {
+        width: 100%;
+        text-align: start;
+    }
+
+    .faq__item--title {
+        text-align: start;
+    }
+
+    .faq__item--desc {
+        text-align: start;
+    }
+}
+/*------------- END MEDIA QUERIES -------------*/
+
+
+
+/*======================================
+=   SECTION TESTIMONIALS
+======================================*/
+
+#testimonials-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-block: 70px;
+    background: var(--bg-quaternary);
+}
+
+#testimonials-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: clamp(300px, 85vw, 1200px);
+}
+
+#testimonials-title {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    text-align: center;
+    color: var(--color-nonary);
+}
+
+
+/* Testimonials container for image and text */
+#testimonials-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+#testimonials-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+/*--- Testimonial text block ---*/
+#testimonials-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#testimonials-blockquote {
+    font-style: italic;
+    font-size: 1rem;
+    text-align: center;
+    color: var(--color-denary);
+}
+
+#testimonials-cite {
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-align: center;
+    color: var(--color-nonary);
+}
+
+
+/*------------- MEDIA QUERIES: TESTIMONIALS TABLET AND DESKTOP -------------*/
+@media (min-width: 768px) {
+    #testimonials-section {
+        scroll-margin-top: 80px;
+    }
+
+    #testimonials-content {
+        width: auto;
+    }
+
+    #testimonials-title {
+        width: 100%;
+        text-align: start;
+    }
+
+    #testimonials-container {
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 50px;
+    }
+
+    #testimonials-img {
+        width: clamp(400px, 40vw, 500px);
+    }
+
+    #testimonials-text {
+        align-items: flex-start;
+        gap: 20px;
+        width: clamp(300px, 40vw, 500px);
+    }
+
+    #testimonials-blockquote {
+        position: relative;
+        padding: 10px 0 10px 30px;
+        text-align: start;
+    }
+
+    /* Custom left border for blockquote */
+    #testimonials-blockquote::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3px;
+        height: 100%;
+        border-radius: 5px;
+        background-color: var(--color-primary);
+    }
+
+    #testimonials-cite {
+        text-align: start;
+    }
+}
+/*------------- END MEDIA QUERIES -------------*/
+
+
+
+/*======================================
+=   SECTION FOOTER
+======================================*/
+footer {
+    width: 100%;
+    padding: 30px;
+    text-align: center;
+    background-color: rgba(21,32,37,0.85);
+}
+
+
+/*---------- Cta Final ----------*/
+#footer-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+#cta-title {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    color: var(--color-primary);
+}
+
+#cta-btn-group {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+
+#cta-btn-primary,
+#cta-btn-secondary {
+    width: 50%;
+    padding-block: 8px;
+    border: none;
+    border-radius: 8px;
+    font-size: .9rem;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+}
+
+#cta-btn-primary {
+    color: var(--color-septenary);
+    background: var(--bg-primary);
+    transition: background-color .4s;
+}
+
+#cta-btn-primary:hover {
+    background-color: var(--bg-denary);
+}
+
+#cta-btn-secondary {
+    border: 2px solid var(--color-primary);
+    color: var(--color-primary);
+    transition: color .4s, background-color .4s;
+}
+
+#cta-btn-secondary:hover {
+    background: var(--bg-primary);
+    color: var(--color-septenary);
+}
+
+
+/*---------- Informacion Adicionl ----------*/
+
+#footer-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+
+/*--- Free resources ---*/
+#footer-resources-item a {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    transition: color .2s;
+}
+#footer-resources-item a:hover {
+    text-decoration: underline;
+    color: var(--color-denary);
+}
+
+
+/*--- Support ---*/
+#footer-support-title {
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+#footer-support-text {
+    font-size: 1rem;
+}
+
+
+/* Contact information */
+#footer-contact span {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--color-denary);
+}
+
+#footer-contact a {
+    font-size: 1rem;
+    color: var(--color-primary);
+    transition: color .2s;
+}
+
+#footer-contact a:hover {
+    text-decoration: underline;
+    color: var(--color-denary);
+}
+
+
+/*--- Credits ---*/
+#footer-credits {
+    margin-top: 40px;
+    font-size: .9rem;
+    color: var(--color-octonary);
+    opacity: 0.8;
+}
+
+#footer-credits p strong {
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+
+
+/*------------- MEDIA QUERIES: FOOTER TABLET AND DESKTOP -------------*/
+@media (min-width: 768px) {
+    footer {
+        padding: 4rem 2rem 2rem 2rem;
+        text-align: left;
+    }
+
+    #footer-cta {
+        align-items: flex-start;
+        width: clamp(700px, 85vw, 700px);
+    }
+
+    #footer-info {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 50px;
+        margin-top: 50px;
+    }
+
+    #footer-credits {
+        text-align: right;
+    }
+}
+/*------------- END MEDIA QUERIES -------------*/
