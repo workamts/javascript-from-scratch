@@ -91,8 +91,96 @@ a {
 
 
 
+/*---------- Animations ----------*/
+
+/*--- Animation from small to large ---*/
+.fade__scale {
+    opacity: 0;
+    transform: scale(0.85);
+}
+
+.fade__scale.visible {
+    animation: fadeScaleIn 0.6s cubic-bezier(.4,0,.2,1) forwards;
+}
+
+@keyframes fadeScaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/*--- Animation from left to right ---*/
+.fade__left {
+    opacity: 0;
+}
+
+.fade__left.visible {
+    animation: slideFromLeft .7s ease-out forwards;
+}
+
+@keyframes slideFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/*--- Animation from right to left ---*/
+.fade__right {
+    opacity: 0;
+}
+
+.fade__right.visible {
+    animation: slideFromRight .7s ease-out forwards;
+}
+
+@keyframes slideFromRight {
+    from {
+        opacity: 0;
+        transform: translateX(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/*--- Animation from bottom to top ---*/
+.fade__bottom {
+    opacity: 0;
+}
+
+.fade__bottom.visible {
+    animation: slideFromBottom .7s ease-out forwards;
+}
+
+@keyframes slideFromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
 /*======================================
-=   SECTION HEADER
+=   HEADER SECTION
 ======================================*/
 
 #header {
@@ -201,7 +289,7 @@ body.menu-open {
     z-index: 1000;
     width: clamp(300px, 75vw, 500px);
     height: 100vh;
-    padding: 70px 0 0 50px;
+    padding: 70px 50px 0;
     background: var(--bg-secondary);
     box-shadow: 0 0 16px var(--bg-septenary);
     transition: left .8s cubic-bezier(.4,0,.2,1);
@@ -272,7 +360,6 @@ body.menu-open {
         position: static;
         left: 0;
         width: 100%;
-        max-width: 1200px;
         height: auto;
         padding: 0;
         background-color: transparent;
@@ -283,12 +370,17 @@ body.menu-open {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        gap: 0;
+        gap: 8px;
+        width: 100%;
     }
 
     #header-menu-btn,
     #header-menu-close {
         display: none !important;
+    }
+
+    .header__menu--item {
+        text-align: center;
     }
 
     .header__menu--item a {
@@ -342,7 +434,7 @@ main {
     padding: 40px 20px;
 }
 
-.hero__title {
+#hero-title {
     font-size: 2rem;
     font-weight: 800;
     letter-spacing: .1rem;
@@ -403,8 +495,7 @@ main {
         gap: 30px;
         width: clamp(700px, 85vw, 1200px);
         height: auto;
-        padding-block: 30px;
-        margin-top: 80px;
+        margin-top: 100px;
     }
 
     #hero-img,
@@ -428,9 +519,8 @@ main {
 
 @media (min-width: 992px) {
     #hero {
-        margin-top: 100px;
+        margin-top: 150px;
     }
-
 }
 /*------------- END MEDIA QUERIES -------------*/
 
@@ -496,6 +586,7 @@ main {
 /*------------- MEDIA QUERIES: WHY JS TABLET AND DESKTOP -------------*/
 @media (min-width: 768px) {
     #why-section {
+        margin-block: 30px;
         scroll-margin-top: 50px;
     }
 
@@ -816,8 +907,8 @@ main {
     }
 
     #benefits-img {
-        width: clamp(400px, 40vw, 500px);
-        height: clamp(300px, 40vw, 400px);
+        width: clamp(200px, 40vw, 500px);
+        height: clamp(100px, 40vw, 400px);
         object-fit: cover;
     }
 }
@@ -847,6 +938,7 @@ main {
 #offer-content {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 15px;
     width: clamp(300px, 85vw, 1200px);
     padding: 50px;
@@ -961,7 +1053,7 @@ main {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 30px;
+    gap: 10px;
     width: 100%;
 }
 
@@ -1093,10 +1185,6 @@ main {
         scroll-margin-top: 80px;
     }
 
-    #testimonials-content {
-        width: auto;
-    }
-
     #testimonials-title {
         width: 100%;
         text-align: start;
@@ -1110,7 +1198,7 @@ main {
     }
 
     #testimonials-img {
-        width: clamp(400px, 40vw, 500px);
+        width: clamp(300px, 40vw, 500px);
     }
 
     #testimonials-text {

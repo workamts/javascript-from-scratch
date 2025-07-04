@@ -4,6 +4,24 @@
 ==============================*/
 
 /*==============================
+=   Scroll-based Animations
+==============================*/
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.1
+});
+
+document.querySelectorAll('.fade__scale, .fade__left, .fade__right, .fade__bottom').forEach(el => observer.observe(el));
+
+
+/*==============================
 =   Menu de navegacion movil
 ==============================*/
 
