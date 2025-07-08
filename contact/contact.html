@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- SEO -->
+    <title>Contact | JavaScript From Scratch: Your First Step in Programming</title>
+    <meta name="description" content="Contact us for more information about the JavaScript From Scratch course. Get in touch for questions, collaborations, or support." />
+    <meta name="keywords" content="javascript, course, programming, contact, support, information, web development, beginners" />
+    <meta name="author" content="Anderson Tovar" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://tusitio.com/javascript-from-scratch/contact/" />
+
+    <!-- Open Graph metadata for social sharing -->
+    <meta property="og:title" content="Contact | JavaScript From Scratch: Your First Step in Programming" />
+    <meta property="og:description" content="Contact us for more information about the JavaScript From Scratch course. Get in touch for questions, collaborations, or support." />
+    <meta property="og:image" content="https://cdn.gamma.app/kn6b920lxo5p1i3/generated-images/iYEZBpeSP7r7YYMhOebzf.jpg" />
+    <meta property="og:url" content="https://tusitio.com/javascript-from-scratch/contact/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Contact | JavaScript From Scratch: Your First Step in Programming" />
+    <meta name="twitter:description" content="Contact us for more information about the JavaScript From Scratch course. Get in touch for questions, collaborations, or support." />
+    <meta name="twitter:image" content="https://cdn.gamma.app/kn6b920lxo5p1i3/generated-images/iYEZBpeSP7r7YYMhOebzf.jpg" />
+
+    <!-- Theme color for mobile browsers -->
+    <meta name="theme-color" content="#152025" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/icons/logo-js-course.png" type="image/png" />
+
+    <!-- Main CSS file -->
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="contact.css"/>
+</head>
+<body>
+    <header class="header" role="banner">
+        <a class="header__logo" href="../index.html" aria-label="Go to homepage">
+            <img class="header__logo--img" src="../assets/icons/logo-js-course.png" alt="JavaScript Course Logo" width="40" height="40" />
+            <span class="header__brand">JavaScript From Scratch</span>
+        </a>
+    </header>
+
+    <main tabindex="-1">
+        <section class="contact__section" aria-labelledby="contact-title">
+            <h1 class="contact__title fade__bottom" class="fade__bottom">Contact & Information</h1>
+            <p class="fade__bottom">Do you have questions about the course, want to collaborate, or need more information? Fill out the form below or use any of the contact methods provided.</p>
+            <div class="contact__main">
+                <form class="contact__form fade__scale" novalidate aria-describedby="contact-desc">
+                    <div class="form__group">
+                        <label for="name">Name <span aria-hidden="true">*</span></label>
+                        <input type="text" id="name"
+                            name="name"
+                            required
+                            placeholder="Your name"
+                            pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{2,40}$"
+                            maxlength="40"
+                            minlength="2"
+                            autocomplete="name"
+                            aria-required="true"
+                            aria-invalid="false"
+                            title="Only letters and spaces. No numbers or special characters."
+                            inputmode="text"/>
+                    </div>
+                    <div class="form__group">
+                        <label for="email">Email <span aria-hidden="true">*</span></label>
+                        <input type="email" id="email"
+                            name="email"
+                            required
+                            placeholder="your@email.com"
+                            pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                            maxlength="60"
+                            autocomplete="email"
+                            aria-required="true"
+                            aria-invalid="false"
+                            title="Enter a valid email address."
+                            inputmode="email"/>
+                    </div>
+                    <div class="form__group">
+                        <label for="message">Message <span aria-hidden="true">*</span></label>
+                        <textarea id="message"
+                            name="message"
+                            rows="5"
+                            required
+                            placeholder="Write your message here..."
+                            minlength="10"
+                            maxlength="500"
+                            autocomplete="off"
+                            aria-required="true"
+                            aria-invalid="false"
+                            title="Message must be between 10 and 500 characters.">
+                        </textarea>
+                    </div>
+                    <button type="submit" class="btn__primary" aria-label="Send Message">Send Message</button>
+                </form>
+                <div class="contact__info fade__right" aria-labelledby="other-contact-title">
+                    <h2>Other ways to contact</h2>
+                    <ul>
+                        <li>Email: <a href="mailto:info@jsfromscratch.com" aria-label="Send email to info at JS From Scratch">info@jsfromscratch.com</a></li>
+                        <li>WhatsApp: <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">+1 234 567 890</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <p>&copy; 2025 <strong>JavaScript From Scratch</strong>. All rights reserved.</p>
+        <p>Designed and developed by <strong>Anderson Tovar – Workamts</strong>.</p>
+    </footer>
+
+    <script src="contact.js" defer></script>
+</body>

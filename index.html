@@ -40,13 +40,7 @@
     <!-- Header -->
     <header id="header" role="banner" aria-label="Main site header">
         <div id="header-logo" tabindex="0">
-            <svg id="header-logo-img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48px" height="48px">
-                <path class="logo-bg" d="M11.5,40c-2.2,0-4-1.745-4-3.879V11.879C7.5,9.745,9.3,8,11.5,8h25c2.2,0,4,1.745,4,3.879v24.242	c0,2.133-1.8,3.879-4,3.879H11.5z"/>
-                <path class="logo-border1" d="M7.5,28.559V11.5c0-2.2,1.8-4,4-4h25c2.2,0,4,1.8,4,4v1.245"/>
-                <path class="logo-border2" d="M40.5,18.617V36.5c0,2.2-1.8,4-4,4h-25c-2.2,0-4-1.8-4-4v-1.755"/>
-                <path class="logo-detail1" d="M29.271,32.389c0.629,1.026,1.312,2.009,2.758,2.009c1.215,0,1.853-0.607,1.853-1.446	c0-1.005-0.659-1.362-1.996-1.946l-0.733-0.314c-2.115-0.901-3.522-2.031-3.522-4.418c0-2.199,1.675-3.873,4.294-3.873	c1.864,0,3.204,0.649,4.17,2.348l-2.283,1.466c-0.503-0.901-1.045-1.256-1.887-1.256c-0.859,0-1.403,0.545-1.403,1.256	c0,0.88,0.545,1.236,1.803,1.78l0.733,0.314c2.492,1.067,3.898,2.156,3.898,4.605c0,2.64-2.074,4.086-4.859,4.086	c-2.723,0-4.27-1.373-5.131-3.074L29.271,32.389z"/>
-                <path class="logo-detail2" d="M18.623,32.464c0.466,0.827,1.176,1.462,2.195,1.462c0.975,0,1.537-0.381,1.537-1.864V22.4h3.074v10.129	c0,3.072-1.801,4.471-4.431,4.471c-2.376,0-4.091-1.593-4.79-3.074L18.623,32.464z"/>
-            </svg>
+            <img id="header-logo-img" src="assets/icons/logo-js-course.png" alt="">
             <span id="header-brand">JavaScript From Scratch</span>
         </div>
 
@@ -79,8 +73,8 @@
                 <p id="hero-description" class="fade__bottom" itemprop="description">Learn JavaScript in a practical and guided way, with no prior experience. Transform your future with the most in-demand programming skills.
                 </p>
                 <div id="hero-btn-group" class="fade__bottom">
-                    <a id="hero-btn-primary" href="https://example.com/inscripcion" role="button" aria-label="Enroll now in the course">Enroll Now!</a>
-                    <a id="hero-btn-secondary" href="https://example.com/mas-informacion" role="button" aria-label="More information about the course">More Information</a>
+                    <a id="hero-btn-primary" href="login-and-register/login-register.html" role="button" aria-label="Enroll now in the course">Enroll Now!</a>
+                    <a id="hero-btn-secondary" href="#footer-content" role="button" aria-label="More information about the course">More Information</a>
                 </div>
             </div>
         </section>
@@ -257,52 +251,54 @@
 
     <!-- Footer -->
     <footer id="footer" role="contentinfo" aria-label="Site footer">
-        <!-- Final CTA -->
-        <section id="footer-cta" aria-labelledby="cta-title" aria-describedby="cta-desc">
-            <h2 id="cta-title">Transform Your Future Today!</h2>
-            <p id="cta-desc">Don't wait any longer to acquire one of the most in-demand skills in tech. Start your journey with <strong>"JavaScript From Scratch"</strong>.</p>
-            <div id="cta-btn-group" role="group" aria-label="Call to action buttons">
-                <a id="cta-btn-primary" href="https://example.com/inscripcion-final" role="button" aria-label="Enroll now and start the course">Enroll Now</a>
-                <a id="cta-btn-secondary" href="https://example.com/contacto" role="button" aria-label="Contact us for more information">Contact Us</a>
-            </div>
-        </section>
-
-        <!-- Additional information -->
-        <section id="footer-info" aria-label="Additional Information">
-            <!-- Branding -->
-            <div id="footer-brand" aria-label="Brand information">
-                <h3>JavaScript From Scratch</h3>
-                <p>Your journey into web development starts here.</p>
-            </div>
-            <!-- Free resources -->
-            <nav id="footer-resources" aria-labelledby="footer-resources-title">
-                <h4 id="footer-resources-title">Free Resources</h4>
-                <ul id="footer-resources-list">
-                    <li id="footer-resources-item"><a href="https://example.com/blog" target="_blank" rel="noopener noreferrer" aria-label="Read our developer blog">Developer Blog</a></li>
-                    <li id="footer-resources-item"><a href="https://example.com/resources" target="_blank" rel="noopener noreferrer" aria-label="View JavaScript Cheatsheet" >JavaScript Cheatsheet</a></li>
-                    <li id="footer-resources-item"><a href="https://example.com/newsletter" target="_blank" rel="noopener noreferrer" aria-label="Subscribe to our weekly newsletter">Weekly Newsletter</a>
-                    </li>
-                </ul>
-            </nav>
-            <!-- Support -->
-            <address id="footer-support" aria-labelledby="footer-support-title">
-                <h4 id="footer-support-title">Support Hours</h4>
-                <p id="footer-support-text">Mon–Fri: 9am – 6pm (GMT-5)</p>
-                <div id="footer-contact">
-                    <span>Email:</span>
-                    <a href="mailto:info@jsfromscratch.com" aria-label="Send email to info at JS From Scratch">info@jsfromscratch.com</a>
+        <div id="footer-content">
+            <!-- Final CTA -->
+            <section id="footer-cta" aria-labelledby="cta-title" aria-describedby="cta-desc">
+                <h2 id="cta-title">Transform Your Future Today!</h2>
+                <p id="cta-desc">Don't wait any longer to acquire one of the most in-demand skills in tech. Start your journey with <strong>"JavaScript From Scratch"</strong>.</p>
+                <div id="cta-btn-group" role="group" aria-label="Call to action buttons">
+                    <a id="cta-btn-primary" href="login-and-register/login-register.html" role="button" aria-label="Enroll now and start the course">Enroll Now</a>
+                    <a id="cta-btn-secondary" href="contact/contact.html" role="button" aria-label="Contact us for more information">Contact Us</a>
                 </div>
-                <div id="footer-contact">
-                    <span>WhatsApp:</span>
-                    <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">+1 234 567 890</a>
-                </div>
-            </address>
-        </section>
+            </section>
 
-        <!-- Credits -->
-        <div id="footer-credits" aria-label="Footer credits">
-            <p>&copy; 2025 <strong>JavaScript From Scratch</strong>. All rights reserved.</p>
-            <p>Designed and developed by <strong>Anderson Tovar – Workamts</strong>.</p>
+            <!-- Additional information -->
+            <section id="footer-info" aria-label="Additional Information">
+                <!-- Branding -->
+                <div id="footer-brand" aria-label="Brand information">
+                    <h3>JavaScript From Scratch</h3>
+                    <p>Your journey into web development starts here.</p>
+                </div>
+                <!-- Free resources -->
+                <nav id="footer-resources" aria-labelledby="footer-resources-title">
+                    <h4 id="footer-resources-title">Free Resources</h4>
+                    <ul id="footer-resources-list">
+                        <li id="footer-resources-item"><a href="#" target="_blank" rel="noopener noreferrer" aria-label="Read our developer blog">Developer Blog</a></li>
+                        <li id="footer-resources-item"><a href="#" target="_blank" rel="noopener noreferrer" aria-label="View JavaScript Cheatsheet" >JavaScript Cheatsheet</a></li>
+                        <li id="footer-resources-item"><a href="#" target="_blank" rel="noopener noreferrer" aria-label="Subscribe to our weekly newsletter">Weekly Newsletter</a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- Support -->
+                <address id="footer-support" aria-labelledby="footer-support-title">
+                    <h4 id="footer-support-title">Support Hours</h4>
+                    <p id="footer-support-text">Mon–Fri: 9am – 6pm (GMT-5)</p>
+                    <div id="footer-contact">
+                        <span>Email:</span>
+                        <a href="mailto:info@jsfromscratch.com" aria-label="Send email to info at JS From Scratch">info@jsfromscratch.com</a>
+                    </div>
+                    <div id="footer-contact">
+                        <span>WhatsApp:</span>
+                        <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">+1 234 567 890</a>
+                    </div>
+                </address>
+            </section>
+
+            <!-- Credits -->
+            <div id="footer-credits" aria-label="Footer credits">
+                <p>&copy; 2025 <strong>JavaScript From Scratch</strong>. All rights reserved.</p>
+                <p>Designed and developed by <strong>Anderson Tovar – Workamts</strong>.</p>
+            </div>
         </div>
     </footer>
 

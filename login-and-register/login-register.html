@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- SEO -->
+    <title>Register | JavaScript From Scratch: Your First Step in Programming</title>
+    <meta name="description" content="Create your account to access the JavaScript From Scratch course. Register now and start learning programming from zero." />
+    <meta name="keywords" content="javascript, course, programming, register, sign up, web development, beginners" />
+    <meta name="author" content="Anderson Tovar" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://tusitio.com/javascript-from-scratch/register/" />
+
+    <!-- Open Graph metadata for social sharing -->
+    <meta property="og:title" content="Register | JavaScript From Scratch: Your First Step in Programming" />
+    <meta property="og:description" content="Create your account to access the JavaScript From Scratch course. Register now and start learning programming from zero." />
+    <meta property="og:image" content="https://cdn.gamma.app/kn6b920lxo5p1i3/generated-images/iYEZBpeSP7r7YYMhOebzf.jpg" />
+    <meta property="og:url" content="https://tusitio.com/javascript-from-scratch/register/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Register | JavaScript From Scratch: Your First Step in Programming" />
+    <meta name="twitter:description" content="Create your account to access the JavaScript From Scratch course. Register now and start learning programming from zero." />
+    <meta name="twitter:image" content="https://cdn.gamma.app/kn6b920lxo5p1i3/generated-images/iYEZBpeSP7r7YYMhOebzf.jpg" />
+
+    <!-- Theme color for mobile browsers -->
+    <meta name="theme-color" content="#152025" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="../assets/icons/logo-js-course.png" type="image/png" />
+
+    <!-- Main CSS file -->
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../contact/contact.css"/>
+    <link rel="stylesheet" href="login-register.css"/>
+</head>
+<body>
+    <header class="header" role="banner">
+        <a class="header__logo" href="../index.html" aria-label="Go to homepage">
+            <img class="header__logo--img" src="../assets/icons/logo-js-course.png" alt="JavaScript Course Logo" width="40" height="40" />
+            <span class="header__brand">JavaScript From Scratch</span>
+        </a>
+    </header>
+
+    <main tabindex="1">
+        <section class="login__register--section" aria-labelledby="register-title">
+            <h1 class="login__register--title fade__bottom">Create your account</h1>
+            <p class="fade__bottom">Register to access all course content, track your progress, and join our learning community.</p>
+            <div class="login__register--main">
+                <form class="login__register__form fade__scale" novalidate autocomplete="off" aria-describedby="register-desc">
+                    <div class="form__group">
+                        <label for="reg-fullname">Full Name <span aria-hidden="true">*</span></label>
+                        <input type="text" id="reg-fullname"
+                            name="fullname"
+                            required
+                            placeholder="Your full name"
+                            pattern="^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{2,80}$"
+                            maxlength="80"
+                            minlength="2"
+                            autocomplete="name"
+                            aria-required="true"
+                            aria-invalid="false"
+                            title="Only letters and spaces. No numbers or special characters."
+                            inputmode="text"/>
+                    </div>
+                    <div class="form__group">
+                        <label for="reg-email">Email <span aria-hidden="true">*</span></label>
+                        <input type="email" id="reg-email"
+                            name="email"
+                            required
+                            placeholder="your@email.com"
+                            pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                            maxlength="60"
+                            autocomplete="email"
+                            aria-required="true"
+                            aria-invalid="false"
+                            title="Enter a valid email address."
+                            inputmode="email"/>
+                    </div>
+                    <div class="form__group">
+                        <label for="reg-password">Password <span aria-hidden="true">*</span></label>
+                        <div class="input__wrapper">
+                            <input type="password" id="reg-password"
+                                name="password"
+                                required
+                                placeholder="Create a password"
+                                minlength="8"
+                                maxlength="32"
+                                autocomplete="new-password"
+                                aria-required="true"
+                                aria-invalid="false"
+                                title="Password must be 8-32 characters, include at least one uppercase letter, one lowercase letter, and one number."
+                                inputmode="text"
+                                style="width:100%;"/>
+                            <button type="button" class="toggle__password" data-target="reg-password" tabindex="-1">
+                                <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/eye.svg" alt="Show/Hide" style="width:22px;height:22px;">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form__group">
+                        <label for="reg-password2">Confirm Password <span aria-hidden="true">*</span></label>
+                        <div class="input__wrapper">
+                            <input type="password" id="reg-password2"
+                                name="password2"
+                                required
+                                placeholder="Repeat your password"
+                                minlength="8"
+                                maxlength="32"
+                                autocomplete="new-password"
+                                aria-required="true"
+                                aria-invalid="false"
+                                title="Repeat your password."
+                                inputmode="text"
+                                style="width:100%;"/>
+                            <button type="button" class="toggle__password" data-target="reg-password2" tabindex="-1">
+                                <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/icons/eye.svg" alt="Show/Hide" style="width:22px;height:22px;">
+                            </button>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn__primary" aria-label="Register">Register</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <p>&copy; 2025 <strong>JavaScript From Scratch</strong>. All rights reserved.</p>
+        <p>Designed and developed by <strong>Anderson Tovar – Workamts</strong>.</p>
+    </footer>
+
+    <script src="login-register.js" defer></script>
+</body>
+</html>

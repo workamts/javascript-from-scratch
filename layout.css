@@ -210,22 +210,9 @@ a {
     padding: 0;
 }
 
-
-/*--- Custom logo using CSS variables---*/
-#header-logo-img .logo-bg {
-    fill: var(--color-secondary);
-}
-
-#header-logo-img .logo-border1,
-#header-logo-img .logo-border2 {
-    stroke: var(--color-primary);
-    stroke-width: 3;
-    fill: none;
-}
-
-#header-logo-img .logo-detail1,
-#header-logo-img .logo-detail2 {
-    fill: var(--color-primary);
+#header-logo-img {
+    width: 48px;
+    height: auto;
 }
 
 #header-brand {
@@ -354,12 +341,14 @@ body.menu-open {
 
     #header-logo {
         width: 100%;
+        max-width: 1300px;
     }
 
     #header-menu {
         position: static;
         left: 0;
         width: 100%;
+        max-width: 1300px;
         height: auto;
         padding: 0;
         background-color: transparent;
@@ -1370,8 +1359,16 @@ footer {
 /*------------- MEDIA QUERIES: FOOTER TABLET AND DESKTOP -------------*/
 @media (min-width: 768px) {
     footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         padding: 4rem 2rem 2rem 2rem;
         text-align: left;
+    }
+
+    #footer-content {
+        width: 100%;
+        max-width: 1300px;
     }
 
     #footer-cta {
